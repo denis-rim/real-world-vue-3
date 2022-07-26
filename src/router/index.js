@@ -8,6 +8,8 @@ import EventLayout from '../views/event/LayoutEvent.vue'
 import NotFound from '../views/NotFound.vue'
 import NetworkError from '../views/NetworkError.vue'
 import EventService from '@/services/EventService.js'
+const About = () =>
+  import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
 import GStore from '@/store'
 
 const routes = [
@@ -28,7 +30,7 @@ const routes = [
           GStore.event = response.data
         })
         .catch((error) => {
-          if (error.response && error.response.status == 404) {
+          if (error.response && error.response.status === 404) {
             return {
               name: '404Resource',
               params: { resource: 'event' },
@@ -53,6 +55,7 @@ const routes = [
         path: 'edit',
         name: 'EventEdit',
         component: EventEdit,
+        meta: { requiresAuth: true },
       },
     ],
   },
@@ -65,7 +68,7 @@ const routes = [
   {
     path: '/about',
     name: 'AboutView',
-    component: () => import('../views/AboutView.vue'),
+    component: About,
   },
   {
     path: '/:catchAll(.*)',
@@ -88,10 +91,31 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior() {
+    // if(saveScrollPosition) {
+    //   return saveScrollPosition
+    // }
+    return { top: 0 }
+  },
 })
 
-router.beforeEach(() => {
+router.beforeEach((to, from) => {
   NProgress.start()
+
+  const notAuthorized = true
+  if (to.meta.requiresAuth && notAuthorized) {
+    GStore.flashMessage = 'You are not authorized to access this page.'
+
+    setTimeout(() => {
+      GStore.flashMessage = ''
+    }, 3000)
+
+    if (from.href) {
+      return false
+    } else {
+      return { path: '/' }
+    }
+  }
 })
 
 router.afterEach(() => {
