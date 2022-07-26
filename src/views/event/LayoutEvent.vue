@@ -1,14 +1,18 @@
 <template>
   <div v-if="event">
     <h1>{{ event.title }}</h1>
-    <p>Event #{{ $route.params.id }}</p>
-    <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
-    <p>{{ event.description }}</p>
+    <div id="nav">
+      <router-link :to="{ name: 'EventDetails' }">Details</router-link>
+      |
+      <router-link :to="{ name: 'EventRegister' }">Register</router-link>
+      |
+      <router-link :to="{ name: 'EventEdit' }">Edit</router-link>
+    </div>
+    <router-view :event="event" />
   </div>
 </template>
-
 <script>
-import EventService from '@/services/EventService'
+import EventService from '@/services/EventService.js'
 export default {
   props: ['id'],
   data() {
@@ -17,7 +21,6 @@ export default {
     }
   },
   created() {
-    // fetch event (by id) and set local event data
     EventService.getEvent(this.id)
       .then((response) => {
         this.event = response.data
@@ -28,5 +31,3 @@ export default {
   },
 }
 </script>
-
-<style scoped></style>
