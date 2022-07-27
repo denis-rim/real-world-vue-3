@@ -40,13 +40,11 @@
 
       <h3>Extras</h3>
       <div>
-        <input type="checkbox" v-model="event.extras.catering" class="field" />
-        <label>Catering</label>
+        <BaseCheckbox v-model="event.extras.catering" label="Catering" />
       </div>
 
       <div>
-        <input type="checkbox" v-model="event.extras.music" class="field" />
-        <label>Live music</label>
+        <BaseCheckbox v-model="event.extras.music" label="Live music" />
       </div>
 
       <button type="submit">Submit</button>
@@ -55,10 +53,7 @@
 </template>
 
 <script>
-// import BaseInput from '@/components/reusable/BaseInput'
-// import BaseSelect from '@/components/reusable/BaseSelect'
 export default {
-  // components: { BaseSelect, BaseInput },
   data() {
     return {
       categories: [
