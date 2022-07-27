@@ -1,18 +1,21 @@
 <template>
-  <div>
+  <div
+    style="
+      max-width: 75%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    "
+  >
     <h1>Create an event</h1>
+
     <form>
-      <label>Select a category</label>
-      <select v-model="event.category">
-        <option
-          v-for="option in categories"
-          :value="option"
-          :key="option"
-          :selected="option === event.category"
-        >
-          {{ option }}
-        </option>
-      </select>
+      <BaseSelect
+        :options="categories"
+        v-model="event.category"
+        label="Select a category"
+      />
 
       <h3>Name & describe your event</h3>
 
@@ -52,9 +55,10 @@
 </template>
 
 <script>
-import BaseInput from '@/components/BaseInput'
+import BaseInput from '@/components/reusable/BaseInput'
+import BaseSelect from '@/components/reusable/BaseSelect'
 export default {
-  components: { BaseInput },
+  components: { BaseSelect, BaseInput },
   data() {
     return {
       categories: [
