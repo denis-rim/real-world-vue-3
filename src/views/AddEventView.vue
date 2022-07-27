@@ -55,10 +55,10 @@
 </template>
 
 <script>
-import BaseInput from '@/components/reusable/BaseInput'
-import BaseSelect from '@/components/reusable/BaseSelect'
+// import BaseInput from '@/components/reusable/BaseInput'
+// import BaseSelect from '@/components/reusable/BaseSelect'
 export default {
-  components: { BaseSelect, BaseInput },
+  // components: { BaseSelect, BaseInput },
   data() {
     return {
       categories: [
