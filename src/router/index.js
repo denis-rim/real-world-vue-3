@@ -7,6 +7,7 @@ import EventEdit from '../views/event/EditView.vue'
 import EventLayout from '../views/event/LayoutEvent.vue'
 import NotFound from '../views/NotFound.vue'
 import NetworkError from '../views/NetworkError.vue'
+import AddEventView from '@/views/AddEventView'
 import EventService from '@/services/EventService.js'
 const About = () =>
   import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
@@ -64,6 +65,11 @@ const routes = [
     redirect: (to) => {
       return { path: '/events/' + to.params.afterEvent }
     },
+  },
+  {
+    path: '/create',
+    name: 'AddEventView',
+    component: AddEventView,
   },
   {
     path: '/about',
