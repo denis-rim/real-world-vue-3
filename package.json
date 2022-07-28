@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "server": "json-server --watch db.json --port 3009",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },

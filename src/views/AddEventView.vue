@@ -10,7 +10,7 @@
   >
     <h1>Create an event</h1>
 
-    <form>
+    <form @submit.prevent="sendForm">
       <BaseSelect
         :options="categories"
         v-model="event.category"
@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import EventService from '@/services/EventService'
 export default {
   data() {
     return {
@@ -85,6 +86,22 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    sendForm() {
+      EventService.createEvent(this.event)
+        .then(() => {
+          this.$router.push({
+            name: 'EventList',
+          })
+        })
+        .catch((error) => {
+          this.$router.push({
+            name: 'ErrorDisplay',
+            params: { error },
+          })
+        })
+    },
   },
 }
 </script>
