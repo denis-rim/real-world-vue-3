@@ -9,7 +9,11 @@
       "date": "January 28, 2022",
       "time": "12:00",
       "petsAllowed": true,
-      "organizer": "Kat Laydee"
+      "organizer": "Kat Laydee",
+      "extras": {
+        "catering": true,
+        "music": true
+      }
     },
     {
       "id": 456,
@@ -20,7 +24,11 @@
       "date": "March 14, 2022",
       "time": "10:00",
       "petsAllowed": true,
-      "organizer": "Fern Pollin"
+      "organizer": "Fern Pollin",
+      "extras": {
+        "catering": true,
+        "music": true
+      }
     },
     {
       "id": 789,
@@ -31,7 +39,11 @@
       "date": "July 22, 2022",
       "time": "11:00",
       "petsAllowed": false,
-      "organizer": "Carey Wales"
+      "organizer": "Carey Wales",
+      "extras": {
+        "catering": true,
+        "music": true
+      }
     },
     {
       "id": 1001,
@@ -42,7 +54,11 @@
       "date": "August 28, 2022",
       "time": "12:00",
       "petsAllowed": true,
-      "organizer": "Dawg Dahd"
+      "organizer": "Dawg Dahd",
+      "extras": {
+        "catering": true,
+        "music": true
+      }
     },
     {
       "id": 1002,
@@ -53,7 +69,11 @@
       "date": "September 14, 2022",
       "time": "3:00",
       "petsAllowed": true,
-      "organizer": "Kahn Opiner"
+      "organizer": "Kahn Opiner",
+      "extras": {
+        "catering": true,
+        "music": true
+      }
     },
     {
       "id": 1003,
@@ -64,7 +84,35 @@
       "date": "July 22, 2022",
       "time": "11:00",
       "petsAllowed": false,
-      "organizer": "Brody Kill"
+      "organizer": "Brody Kill",
+      "extras": {
+        "catering": true,
+        "music": true
+      }
+    },
+    {
+      "category": "animal welfare",
+      "title": "rftghtr",
+      "description": "gthrtghy",
+      "location": "",
+      "pets": 1,
+      "extras": {
+        "catering": true,
+        "music": true
+      },
+      "id": 1004
+    },
+    {
+      "category": "education",
+      "title": "gfrgththtrf",
+      "description": "ghtrffghytr",
+      "location": "hggtrygh",
+      "pets": 1,
+      "extras": {
+        "catering": true,
+        "music": true
+      },
+      "id": 1005
     }
   ]
 }
